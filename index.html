@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Теория чисел КП 11</title>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo_wrap">
+          <img src="img/logo2.png" alt="" />
+          <img class="logo2" src="img/logo1.png" alt="" />
+        </div>
+        <div class="menu">
+          <div class="tasks">
+            <a href="">Теория</a>
+            <a href="https://t.me/task_tester88_bot" target="_blank"
+              >Практика</a
+            >
+          </div>
+          <div class="other">
+            <a href="">Аккаунт</a>
+            <a href="https://kp11.mskobr.ru/" target="_blank">Поддержка</a>
+          </div>
+        </div>
+        <button class="mob_btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="mob_menu">
+        <div class="mob_menu_list">
+          <a href="">Теория</a>
+          <a href="https://t.me/task_tester88_bot" target="_blank">Практика</a>
+          <a href="">Аккаунт</a>
+          <a href="https://kp11.mskobr.ru/" target="_blank">Поддержка</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="banner">
+      <div class="slider_container">
+        <div class="slide_track">
+          <div class="slide">
+            <img class="pc_banner" src="img/banner1.jpg" alt="" />
+            <img class="mob_banner" src="img/banner1_mob.jpg" alt="" />
+          </div>
+          <div class="slide">
+            <img class="pc_banner" src="img/banner2.jpg" alt="" />
+            <img class="mob_banner" src="img/banner2_mob.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1>Регистрация</h1>
+    <form id="registrationForm">
+      <label for="telegramId">Telegram ID:</label><br />
+      <input
+        type="text"
+        id="telegramId"
+        name="telegramId"
+        required
+      /><br /><br />
+
+      <label for="telegramUsername">Telegram Username:</label><br />
+      <input
+        type="text"
+        id="telegramUsername"
+        name="telegramUsername"
+        required
+      /><br /><br />
+
+      <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+      const form = document.getElementById("registrationForm");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const telegramId = document.getElementById("telegramId").value;
+        const telegramUsername =
+          document.getElementById("telegramUsername").value;
+
+        const response = await fetch("http://localhost:3000/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ telegramId, telegramUsername }),
+        });
+
+        const result = await response.json();
+        document.getElementById("result").innerText = result.message;
+      });
+    </script>
+    <div class="task_menu">
+      <div class="container">
+        <div class="task_menu_title">
+          <h2>Доступные разделы</h2>
+        </div>
+        <div class="task_list">
+          <a href="" class="task_card digits">
+            <img src="img/task_icons/digits.svg" alt="" />
+            <p>Простые числа</p>
+          </a>
+          <a href="" class="task_card divide">
+            <img src="img/task_icons/division.svg" alt="" />
+            <p>Делимость</p>
+          </a>
+          <a href="" class="task_card eratosfen">
+            <img src="img/task_icons/eratosfen.svg" alt="" />
+            <p>Решето Эратосфена</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tasks">
+      <div class="container">
+        <div class="task">
+          <div class="task_name">
+            <h2>Простые числа</h2>
+            <img src="img/task_icons/digits.svg" alt="" />
+          </div>
+          <p>Изучите теорию по теме Простые числа и пройдите тестирование</p>
+          <a href="/digits.html" target="_blank">Открыть</a>
+        </div>
+
+        <div class="task">
+          <div class="task_name">
+            <h2>Делимость</h2>
+            <img src="img/task_icons/division.svg" alt="" />
+          </div>
+          <p>Изучите теорию по теме Делимость и пройдите тестирование</p>
+          <a href="/division.html" target="_blank">Открыть</a>
+        </div>
+
+        <div class="task">
+          <div class="task_name">
+            <h2>Решето Эратосфена</h2>
+            <img src="img/task_icons/eratosfen.svg" alt="" />
+          </div>
+          <p>
+            Изучите теорию по теме Решето Эратосфена и пройдите тестирование
+          </p>
+          <a href="/eratosfen.html" target="_blank">Открыть</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="footer_column">
+          <div class="footer_logos">
+            <img src="img/logo1.png" alt="" />
+            <img src="img/logo2.png" alt="" />
+          </div>
+          <p>Сайт разработан КП11</p>
+          <p>г.Москва Ленинградское шоссе 13А</p>
+        </div>
+        <div class="footer_column">
+          <a href="">Теория</a>
+          <a href="">Практика</a>
+          <a href="">Аккаунт</a>
+        </div>
+        <div class="footer_column">
+          <p>Контактная информация</p>
+          <p>Телефон: <a href="">8-915-352-88-91</a></p>
+          <p>Почта: <a href="">supportgamearea@gmail.com</a></p>
+        </div>
+      </div>
+    </footer>
+    <script src="js/index.js"></script>
+  </body>
+</html>
