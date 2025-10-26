@@ -12,7 +12,6 @@ body {
 }
 
 header {
-    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -31,7 +30,7 @@ header .container {
 header .menu {
     display: flex;
     justify-content: space-between;
-    width: 600px;
+    width: 50dvw;
     font-size: 24px;
 }
 

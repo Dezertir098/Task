@@ -18,29 +18,28 @@
         <div class="menu">
           <div class="tasks">
             <a href="">Теория</a>
-            <a href="https://t.me/task_tester88_bot" target="_blank"
-              >Практика</a
-            >
+            <a href="https://t.me/task_tester88_bot" target="_blank">Практика</a>
           </div>
           <div class="other">
             <a href="">Аккаунт</a>
             <a href="https://kp11.mskobr.ru/" target="_blank">Поддержка</a>
+            <a href="https://t.me/degugtest_bot/?start=start" target="_blank">Войти через телеграм</a>
+          </div>
+          <button class="mob_btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <div class="mob_menu">
+          <div class="mob_menu_list">
+            <a href="">Теория</a>
+            <a href="https://t.me/task_tester88_bot" target="_blank">Практика</a>
+            <a href="">Аккаунт</a>
+            <a href="https://kp11.mskobr.ru/" target="_blank">Поддержка</a>
+            <a href="https://t.me/degugtest_bot" target="_blank">Войти через телеграм</a>
           </div>
         </div>
-        <button class="mob_btn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      <div class="mob_menu">
-        <div class="mob_menu_list">
-          <a href="">Теория</a>
-          <a href="https://t.me/task_tester88_bot" target="_blank">Практика</a>
-          <a href="">Аккаунт</a>
-          <a href="https://kp11.mskobr.ru/" target="_blank">Поддержка</a>
-        </div>
-      </div>
     </header>
 
     <div class="banner">
@@ -57,51 +56,6 @@
         </div>
       </div>
     </div>
-    <h1>Регистрация</h1>
-    <form id="registrationForm">
-      <label for="telegramId">Telegram ID:</label><br />
-      <input
-        type="text"
-        id="telegramId"
-        name="telegramId"
-        required
-      /><br /><br />
-
-      <label for="telegramUsername">Telegram Username:</label><br />
-      <input
-        type="text"
-        id="telegramUsername"
-        name="telegramUsername"
-        required
-      /><br /><br />
-
-      <button type="submit">Зарегистрироваться</button>
-    </form>
-
-    <div id="result"></div>
-
-    <script>
-      const form = document.getElementById("registrationForm");
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const telegramId = document.getElementById("telegramId").value;
-        const telegramUsername =
-          document.getElementById("telegramUsername").value;
-
-        const response = await fetch("http://localhost:3000/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ telegramId, telegramUsername }),
-        });
-
-        const result = await response.json();
-        document.getElementById("result").innerText = result.message;
-      });
-    </script>
     <div class="task_menu">
       <div class="container">
         <div class="task_menu_title">
